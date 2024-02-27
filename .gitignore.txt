@@ -1,0 +1,14 @@
+/.vs
+Debug
+Release
+x64
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.exe
+*.idb
+*.tlog
+*.pdb
+*.lib
+*.obj
+*.sln
