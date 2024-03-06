@@ -4,20 +4,15 @@
 import os
 import shutil
 
+def DeleteDirectory(root, dirName):
+    Path = os.path.join(root, dirName)
+    if os.path.exists(Path):
+        print('Deleting Directory:', Path)
+        shutil.rmtree(Path)
+
 if __name__ == "__main__":
     print("Executing CleanMe.py ...")
     path = os.getcwd();
-
-    buildDir = 'build'
-    buildPath = os.path.join(path, buildDir)
-    if os.path.exists(buildPath):
-        print('Deleting Directory:', buildPath)
-        shutil.rmtree(buildPath)
-
-    vsDir = '.vs'
-    vsPath = os.path.join(path, vsDir)
-    if os.path.exists(vsPath):
-        print('Deleting Directory:', vsPath)
-        shutil.rmtree(vsPath)
-
+    DeleteDirectory(path, 'build')
+    DeleteDirectory(path, '.vs')
     print("CleanMe.py complete.")
