@@ -71,23 +71,6 @@ void ABFramework::Sprite::Draw(const Matrix& _viewProj)
 	pGraphicObj->Draw(_viewProj, m_transform);
 }
 
-void ABFramework::Sprite::OnLeftMouse()
-{
-	//printf("Mouse button collides with square. This is the function that should check collision and swap texture.\n");
-	CursorCoord curPos = Input::GetCursorPosition();
-	printf("Left Mouse Button Pressed (%f, %f)\n", curPos.x, curPos.y);
-	if (Collision::Check(this->pCollider, Input::GetMouseCollider()))
-	{
-		printf("Mouse button collides with square.\n");
-		this->SetTexture(AssetManager::FindTexture(String("Stitch").GetHash()));
-	}
-	else
-	{
-		printf("Mouse button does not collide with square.\n");
-		this->SetTexture(AssetManager::FindTexture(String("Default").GetHash()));
-	}
-}
-
 //********************************************************************************//
 //                                Setters                                         //
 //********************************************************************************//

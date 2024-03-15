@@ -15,7 +15,7 @@ ABFramework::Camera::Camera()
 ABFramework::Camera::Camera(const Point2D& _ScrnResolution, const Point3D& _CenterPoint)
 	:m_View(), m_Projection(), m_ViewProj()
 {
-	m_Projection = glm::ortho(0.0f, _ScrnResolution.x, 0.0f, _ScrnResolution.y, -1.0f, 1.0f);
+	m_Projection = glm::ortho(0.0f, _ScrnResolution.x,  0.0f, _ScrnResolution.y, -1.0f, 1.0f);
 	m_View = glm::translate(glm::identity<Matrix>(), _CenterPoint);
 	m_ViewProj = m_Projection * m_View;
 }

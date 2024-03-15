@@ -2,9 +2,9 @@
 #ifndef ABFRAMEWORK_INPUTMAPPING_H
 #define ABFRAMEWORK_INPUTMAPPING_H
 
-#include "../Engine/Core/GameObject/GameObject.h"
+#include "../Engine/Core/Controller/PlayerController.h"
 
-typedef std::function<void(ABFramework::GameObject*)> t_inputAction;
+typedef std::function<void(ABFramework::PlayerController*)> t_inputAction;
 
 namespace ABFramework
 {
@@ -13,7 +13,7 @@ namespace ABFramework
 	public:
 
 		InputMapping() = default;
-		InputMapping(t_inputAction _func, GameObject* _obj) : function(_func), pObj(_obj) {}
+		InputMapping(t_inputAction _func, PlayerController* _obj) : function(_func), pObj(_obj) {}
 		~InputMapping() { pObj = nullptr; }
 
 		void operator()()
@@ -28,7 +28,7 @@ namespace ABFramework
 
 	private:
 		t_inputAction function;
-		GameObject* pObj;
+		PlayerController* pObj;
 	};
 
 }

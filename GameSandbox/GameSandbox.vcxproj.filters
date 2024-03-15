@@ -1,25 +1,88 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="TicTacToe">
+      <UniqueIdentifier>{25C9BBA1-9133-7018-DA71-21BE461B4E6D}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="TicTacToe\Controller">
+      <UniqueIdentifier>{98B3C5E2-8442-4FAC-2D61-63A719CF5F52}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="TicTacToe\CurrentPlayerIcon">
+      <UniqueIdentifier>{ED280878-5936-365E-E21C-32494E290215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TicTacToe\GameBoard">
+      <UniqueIdentifier>{B6A1A4A0-2203-82AE-AB70-C86017D1B86D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TicTacToe\GameBoard\Tile">
+      <UniqueIdentifier>{F37FBEE1-DFA4-0D62-08F0-F2F1F4730C80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TicTacToe\Scenes">
+      <UniqueIdentifier>{B57EC9C1-A177-E813-CAA9-CD98B601C81F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="TicTacToe\Controller\MainMenuController.h">
+      <Filter>TicTacToe\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="TicTacToe\Controller\TwoPlayerController.h">
+      <Filter>TicTacToe\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="TicTacToe\CurrentPlayerIcon\CurrentPlayerIcon.h">
+      <Filter>TicTacToe\CurrentPlayerIcon</Filter>
+    </ClInclude>
+    <ClInclude Include="TicTacToe\GameBoard\GameBoard.h">
+      <Filter>TicTacToe\GameBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="TicTacToe\GameBoard\Tile\Tile.h">
+      <Filter>TicTacToe\GameBoard\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="TicTacToe\Scenes\SceneEndGame.h">
+      <Filter>TicTacToe\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TicTacToe\Scenes\SceneMainMenu.h">
+      <Filter>TicTacToe\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TicTacToe\Scenes\SceneManager.h">
+      <Filter>TicTacToe\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TicTacToe\Scenes\ScenePlayerTwo.h">
+      <Filter>TicTacToe\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TicTacToe\TicTacToe.h">
+      <Filter>TicTacToe</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TicTacToe\Controller\MainMenuController.cpp">
+      <Filter>TicTacToe\Controller</Filter>
     </ClCompile>
+    <ClCompile Include="TicTacToe\Controller\TwoPlayerController.cpp">
+      <Filter>TicTacToe\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="TicTacToe\CurrentPlayerIcon\CurrentPlayerIcon.cpp">
+      <Filter>TicTacToe\CurrentPlayerIcon</Filter>
+    </ClCompile>
+    <ClCompile Include="TicTacToe\GameBoard\GameBoard.cpp">
+      <Filter>TicTacToe\GameBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="TicTacToe\GameBoard\Tile\Tile.cpp">
+      <Filter>TicTacToe\GameBoard\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="TicTacToe\Scenes\SceneMainMenu.cpp">
+      <Filter>TicTacToe\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="TicTacToe\Scenes\SceneManager.cpp">
+      <Filter>TicTacToe\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="TicTacToe\Scenes\ScenePlayerTwo.cpp">
+      <Filter>TicTacToe\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="TicTacToe\TicTacToe.cpp">
+      <Filter>TicTacToe</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\Textures\stitch.tga" />
+    <None Include="build.lua" />
   </ItemGroup>
 </Project>

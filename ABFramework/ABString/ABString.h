@@ -33,6 +33,8 @@ namespace ABFramework
 
 		// ------ Utility ----- //
 
+		static size_t Hash(const char* const _pStr);
+
 		// ----- Setters ----- //
 
 		void Copy(const String* _rhs);

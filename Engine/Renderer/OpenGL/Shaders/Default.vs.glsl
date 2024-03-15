@@ -9,7 +9,6 @@ uniform mat4 u_Model;
 
 void main()
 {
-	//vec4 t_position = position * u_Scale;
 	gl_Position = u_VP * u_Model * position;
 	v_TexCoord = texCoord;
 };

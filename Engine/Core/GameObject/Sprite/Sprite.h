@@ -21,7 +21,6 @@ namespace ABFramework
 
 		void Update() override;
 		void Draw(const Matrix& _viewProj) override;
-		void OnLeftMouse();
 
 		// ----- Setters ----- //
 

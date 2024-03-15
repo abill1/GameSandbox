@@ -17,6 +17,7 @@ ABFramework::Texture::Texture()
 ABFramework::Texture::Texture(const ABFramework::String& _textureFilePath, const char* const _name)
 	: pName(new String(_name)), pTextureBuffer(nullptr), m_width(0), m_height(0), m_BPP(0), m_textureID(0U)
 {
+	stbi_set_flip_vertically_on_load(1);
 	pTextureBuffer = stbi_load(_textureFilePath.c_str(), &m_width, &m_height, &m_BPP, 4);
 	glGenTextures(1, &m_textureID);
 	glBindTexture(GL_TEXTURE_2D, m_textureID);
@@ -80,14 +81,14 @@ ABFramework::Texture& ABFramework::Texture::operator=(const Texture& _rhs)
 }
 
 
-
-
 //********************************************************************************//
 //                                Utility                                         //
 //********************************************************************************//
 
 void ABFramework::Texture::Bind(unsigned int _location /*= 0 */) const
 {
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	// ----- TODO: Should include check for location not to exceed 32
 	glActiveTexture(GL_TEXTURE0 + _location);
 	glBindTexture(GL_TEXTURE_2D, m_textureID);
@@ -102,7 +103,7 @@ void ABFramework::Texture::Unbind() const
 //                                Setters                                         //
 //********************************************************************************//
 
-void ABFramework::Texture::Load(const class String& _textureFilePath, const char* const _name)
+void ABFramework::Texture::Load(const class String& _textureFilePath, const char* const _name, bool _flip)
 {
 	if (pTextureBuffer)
 	{
@@ -111,6 +112,7 @@ void ABFramework::Texture::Load(const class String& _textureFilePath, const char
 		glDeleteTextures(1, &m_textureID);
 	}
 
+	stbi_set_flip_vertically_on_load((int)_flip);
 	pTextureBuffer = stbi_load(_textureFilePath.c_str(), &m_width, &m_height, &m_BPP, 4);
 	glGenTextures(1, &m_textureID);
 	glBindTexture(GL_TEXTURE_2D, m_textureID);
@@ -128,7 +130,6 @@ void ABFramework::Texture::Load(const class String& _textureFilePath, const char
 		pName->Copy(&_textureFilePath);
 
 }
-
 
 
 //********************************************************************************//

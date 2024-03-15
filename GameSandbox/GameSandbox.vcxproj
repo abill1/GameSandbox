@@ -1,14 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
@@ -19,49 +11,26 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{2E497B1E-9AFE-F313-23F3-EDEA8FA7EA17}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{0722444e-a163-4bc3-a8c5-977c65fc7ca0}</ProjectGuid>
     <RootNamespace>GameSandbox</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Label="Shared">
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -70,119 +39,102 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\build\bin\x86_64-Debug\</OutDir>
+    <IntDir>..\build\obj\x86_64-Debug\GameSandbox\</IntDir>
+    <TargetName>GameSandbox</TargetName>
+    <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\build\bin\x86_64-Release\</OutDir>
+    <IntDir>..\build\obj\x86_64-Release\GameSandbox\</IntDir>
+    <TargetName>GameSandbox</TargetName>
+    <TargetExt>.exe</TargetExt>
   </PropertyGroup>
-  <PropertyGroup Label="Vcpkg">
-    <VcpkgEnabled>false</VcpkgEnabled>
-    <VcpkgManifestInstall>false</VcpkgManifestInstall>
-    <VcpkgAutoLink>false</VcpkgAutoLink>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)MemoryTracker\Include;$(SolutionDir)ABFramework;$(SolutionDir)GLFW\include;$(SolutionDir)GameSandbox\GLAD\include;$(SolutionDir)Engine;$(SolutionDir)glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(SolutionDir)MemoryTracker\Include\MemoryTracker.h;$(SolutionDir)ABFramework\Include\ABFramework.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)MemoryTracker\Include;$(SolutionDir)ABFramework;$(SolutionDir)GLFW\include;$(SolutionDir)GameSandbox\GLAD\include;$(SolutionDir)Engine;$(SolutionDir)glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(SolutionDir)MemoryTracker\Include\MemoryTracker.h;$(SolutionDir)ABFramework\Include\ABFramework.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)MemoryTracker\Include;$(SolutionDir)ABFramework;$(SolutionDir)GLFW\include;$(SolutionDir)GameSandbox\GLAD\include;$(SolutionDir)Engine;$(SolutionDir)glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(SolutionDir)MemoryTracker\Include\MemoryTracker.h;$(SolutionDir)ABFramework\Include\ABFramework.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;.;..\Engine;..\glm;..\GLFW\include;..\ABFramework;..\MemoryTracker;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>..\MemoryTracker\Include\MemoryTracker.h;..\ABFramework\Include\ABFramework.h</ForcedIncludeFiles>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PreBuildEvent>
-      <Command>copy "$(SolutionDir)MemoryTracker\Include\*" "$(SolutionDir)x64\Debug\*"</Command>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;.;..\Engine;..\glm;..\GLFW\include;..\ABFramework;..\MemoryTracker;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>..\MemoryTracker\Include\MemoryTracker.h;..\ABFramework\Include\ABFramework.h</ForcedIncludeFiles>
+      <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)MemoryTracker\Include;$(SolutionDir)ABFramework;$(SolutionDir)GLFW\include;$(SolutionDir)GameSandbox\GLAD\include;$(SolutionDir)Engine;$(SolutionDir)glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(SolutionDir)MemoryTracker\Include\MemoryTracker.h;$(SolutionDir)ABFramework\Include\ABFramework.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PreBuildEvent>
-      <Command>copy "$(SolutionDir)MemoryTracker\Include\*" "$(SolutionDir)x64\Debug\*"</Command>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="TicTacToe\Controller\MainMenuController.h" />
+    <ClInclude Include="TicTacToe\Controller\TwoPlayerController.h" />
+    <ClInclude Include="TicTacToe\CurrentPlayerIcon\CurrentPlayerIcon.h" />
+    <ClInclude Include="TicTacToe\GameBoard\GameBoard.h" />
+    <ClInclude Include="TicTacToe\GameBoard\Tile\Tile.h" />
+    <ClInclude Include="TicTacToe\Scenes\SceneEndGame.h" />
+    <ClInclude Include="TicTacToe\Scenes\SceneMainMenu.h" />
+    <ClInclude Include="TicTacToe\Scenes\SceneManager.h" />
+    <ClInclude Include="TicTacToe\Scenes\ScenePlayerTwo.h" />
+    <ClInclude Include="TicTacToe\TicTacToe.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TicTacToe\Controller\MainMenuController.cpp" />
+    <ClCompile Include="TicTacToe\Controller\TwoPlayerController.cpp" />
+    <ClCompile Include="TicTacToe\CurrentPlayerIcon\CurrentPlayerIcon.cpp" />
+    <ClCompile Include="TicTacToe\GameBoard\GameBoard.cpp" />
+    <ClCompile Include="TicTacToe\GameBoard\Tile\Tile.cpp" />
+    <ClCompile Include="TicTacToe\Scenes\SceneMainMenu.cpp" />
+    <ClCompile Include="TicTacToe\Scenes\SceneManager.cpp" />
+    <ClCompile Include="TicTacToe\Scenes\ScenePlayerTwo.cpp" />
+    <ClCompile Include="TicTacToe\TicTacToe.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ABFramework\ABFramework.vcxproj">
-      <Project>{de84803f-2c87-4339-887c-3ecbab27d813}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Engine\Engine.vcxproj">
-      <Project>{293a8a0a-f4ce-488e-895f-b1dee566fd99}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\GLAD\GLAD.vcxproj">
-      <Project>{f0a67fa2-feff-454b-9571-3bd20fe553d9}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\GLFW\GLFW.vcxproj">
-      <Project>{65920374-2f18-4780-b6d9-05b88a074535}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\MemoryTracker\MemoryTracker.vcxproj">
-      <Project>{2d222886-8827-4c71-a125-efb21520b947}</Project>
-    </ProjectReference>
+    <None Include="build.lua" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\Textures\stitch.tga" />
+    <ProjectReference Include="..\MemoryTracker\MemoryTracker.vcxproj">
+      <Project>{0A814603-7641-C239-3F7C-0BB7ABFB0616}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ABFramework\ABFramework.vcxproj">
+      <Project>{560F7F12-C2C4-F707-4BB9-F1DEB76DEE0B}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GLFW\GLFW.vcxproj">
+      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\glm\glm.vcxproj">
+      <Project>{6577880B-D180-887C-5AFC-9E7CC604947C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Engine\Engine.vcxproj">
+      <Project>{DBC7D3B0-C769-FE86-B024-12DB9C6585D7}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

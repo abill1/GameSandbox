@@ -98,8 +98,22 @@ ABFramework::String& ABFramework::String::operator=(const ABFramework::String& r
 //                                Utility                                         //
 //********************************************************************************//
 
+size_t ABFramework::String::Hash(const char* const _pStr)
+{
+	size_t len = strlen(_pStr);
+	// ----- Polynomial rolling hash function
+	size_t value = 0U;
+	size_t pow = 1;
 
+	for (int index = 0; index < len; index++)
+	{
+		size_t tmp = (size_t)_pStr[index];
+		value = (value + tmp * pow) % HASH_MOD;
+		pow = (pow * HASH_P) % HASH_MOD;
+	}
 
+	return value;
+}
 
 //********************************************************************************//
 //                                Setters                                         //

@@ -102,7 +102,7 @@ ABFramework::CursorCoord ABFramework::Input::GetCursorPosition()
 	double y;
 	glfwGetCursorPos(privGetInstance()->pFocus->GetWindow(), &x, &y);
 	Window::Resolution resolution = privGetInstance()->pFocus->GetResolution();
-	return { ((float)x - (resolution.width / 2.0f)), ((float)y - (resolution.height / 2.0f)) };
+	return { ((float)x - (resolution.width / 2.0f)), ((float)-y + (resolution.height / 2.0f)) };
 }
 
 ABFramework::CursorCoord ABFramework::Input::GetTrueCursorPosition()
@@ -113,18 +113,30 @@ ABFramework::CursorCoord ABFramework::Input::GetTrueCursorPosition()
 	return { (float)x, (float)y };
 }
 
-void ABFramework::Input::BindAction(MouseCode _code, t_inputAction _func, GameObject* _pObj)
+void ABFramework::Input::BindAction(MouseCode _code, t_inputAction _func, PlayerController* _pObj)
 {
 	InputMapping tmp(_func, _pObj);
 	privGetInstance()->m_MouseInputMappings[(int)_code] = tmp;
 	privGetInstance()->m_MouseState[(int)_code] = GLFW_RELEASE;
 }
 
-void ABFramework::Input::BindAction(KeyCode _code, t_inputAction _func, GameObject* _pObj)
+void ABFramework::Input::BindAction(KeyCode _code, t_inputAction _func, PlayerController* _pObj)
 {
 	InputMapping tmp(_func, _pObj);
 	privGetInstance()->m_KeyInputMappings[(int)_code] = tmp;
 	privGetInstance()->m_KeyState[(int)_code] = GLFW_RELEASE;
+}
+
+void ABFramework::Input::UnbindAction(MouseCode _code)
+{
+	privGetInstance()->m_KeyInputMappings.erase((int)_code);
+	privGetInstance()->m_KeyState.erase((int)_code);
+}
+
+void ABFramework::Input::UnbindAction(KeyCode _code)
+{
+	privGetInstance()->m_KeyInputMappings.erase((int)_code);
+	privGetInstance()->m_KeyState.erase((int)_code);
 }
 
 void ABFramework::Input::CallAction(MouseCode _code)

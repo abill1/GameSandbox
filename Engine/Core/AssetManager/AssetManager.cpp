@@ -1,6 +1,8 @@
 
 #include "AssetManager.h"
 #include "../Engine/Renderer/OpenGL/Texture/Texture.h"
+#include "../Engine/Renderer/OpenGL/SimpleMeshes/SquareMesh/SquareMesh.h"
+#include "AssetDef/AssetDef.h"
 
 ABFramework::AssetManager* ABFramework::AssetManager::pInstance = nullptr;
 
@@ -9,14 +11,15 @@ ABFramework::AssetManager* ABFramework::AssetManager::pInstance = nullptr;
 //********************************************************************************//
 
 ABFramework::AssetManager::AssetManager()
-	:m_Textures()
+	:m_Textures(), pSquareMesh(new Square_Mesh())
 {
 
 }
 
 ABFramework::AssetManager::~AssetManager()
 {
-
+	delete pSquareMesh;
+	pSquareMesh = nullptr;
 }
 
 
@@ -61,6 +64,21 @@ ABFramework::t_handle ABFramework::AssetManager::AddTexture(const class String& 
 	return handle;
 }
 
+ABFramework::t_handle ABFramework::AssetManager::AddTexture(const AssetDef& _assetDef)
+{
+	t_handle handle = 0;
+	if (_assetDef.m_name == " ")
+		handle = _assetDef.m_filePath.GetHash();
+	else
+		handle = _assetDef.m_name.GetHash();
+
+	handle = privGetInstance()->m_Textures.Add<Texture>(_assetDef.m_name);
+	if (handle != 0)
+		privGetInstance()->m_Textures.GetObject(handle)->Load(_assetDef.m_filePath, _assetDef.m_name.c_str(), _assetDef.m_FlipVertically);
+
+	return handle;
+}
+
 //********************************************************************************//
 //                                Getters                                         //
 //********************************************************************************//
@@ -73,6 +91,11 @@ ABFramework::Texture* ABFramework::AssetManager::FindTexture(t_handle _handle)
 		ptr = privGetInstance()->m_Textures.GetObject(_handle);
 
 	return ptr;
+}
+
+ABFramework::Square_Mesh* ABFramework::AssetManager::GetSquareMesh()
+{
+	return privGetInstance()->pSquareMesh;
 }
 
 //********************************************************************************//

@@ -31,8 +31,10 @@ namespace ABFramework
 		static bool IsPressed(MouseCode _button);
 		static CursorCoord GetCursorPosition();
 		static CursorCoord GetTrueCursorPosition();
-		static void BindAction(MouseCode _code, t_inputAction _func, GameObject* _pObj);
-		static void BindAction(KeyCode _code, t_inputAction _func, GameObject* _pObj);
+		static void BindAction(MouseCode _code, t_inputAction _func, PlayerController* _pObj);
+		static void BindAction(KeyCode _code, t_inputAction _func, PlayerController* _pObj);
+		static void UnbindAction(MouseCode _code);
+		static void UnbindAction(KeyCode _code);
 		static void CallAction(MouseCode _code);
 		static void CallAction(KeyCode _code);
 

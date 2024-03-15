@@ -7,6 +7,13 @@ namespace ABFramework
 	class Texture
 	{
 	public:
+		enum class FlipVertically : int
+		{
+			NO = 0,
+			YES = 1
+		};
+
+	public:
 		// ----- Constructor / Destructor ----- //
 
 		Texture();
@@ -24,7 +31,7 @@ namespace ABFramework
 
 		// ----- Setters ----- //
 		
-		void Load(const class String& _textureFilePath, const char* const _name = " ");
+		void Load(const class String& _textureFilePath, const char* const _name = " ", bool _flip = false);
 
 		// ----- Getters ----- //
 

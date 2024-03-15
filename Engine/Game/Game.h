@@ -24,25 +24,26 @@ namespace ABFramework
 
 		// ------ Utility ----- //
 		virtual void InitializeSystems();
-		virtual void LoadContent();
-		virtual void UnloadContent();
+		virtual void LoadContent() = 0;
+		virtual void UnloadContent() = 0;
 		virtual void CloseSystems();
 		virtual void Update();
 		virtual void Draw();
-		virtual Code Run();
+		Code Run();
 
 		// ----- Setters ----- //
 
 		// ----- Getters ----- //
 
-	private:
+	protected:
+		void GameLoop();
 		void privPrintOpenGLVersion() const;
-		
+		virtual void SubUpdateRoutine() {}
 
-	private:
+	protected:
 		Window* pWindow;
 		String* pOpenGLVersion;
-		//Renderer* pRenderer;
+		bool bRunning;
 
 	};
 }

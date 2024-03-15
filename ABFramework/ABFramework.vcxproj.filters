@@ -1,63 +1,82 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="ABString">
+      <UniqueIdentifier>{FF97FD1A-EB64-5826-147E-46CE00AA8DB4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Buffer">
+      <UniqueIdentifier>{3F5F52AA-2B01-7D80-14BC-90D400FD03D1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Codes">
+      <UniqueIdentifier>{D3FEF90C-3F13-22BE-0895-C51D74681EEF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Constants">
+      <UniqueIdentifier>{42F56A07-AE5F-1F7E-F79D-D0236347FDD2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debugging">
+      <UniqueIdentifier>{51835CA9-BDED-1020-062C-C2C572D5EE74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debugging\Assert">
+      <UniqueIdentifier>{D2C4913C-BEBD-B08E-E7EF-9513D347909A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File">
+      <UniqueIdentifier>{053F857C-F175-860D-9A62-6C108678020F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{6917EFFE-D5F6-6D9A-DE0E-F9704A6DD4FB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Macros">
+      <UniqueIdentifier>{4AC38FC2-3665-BA98-1F20-CEEC0B6141E9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ManagedObjects">
+      <UniqueIdentifier>{5C61060F-482F-FA14-31C3-6A3B1D30D679}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ABString\ABString.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="File\ABFile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Codes\ABCode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Constants\Constants.h">
-      <Filter>Header Files</Filter>
+      <Filter>ABString</Filter>
     </ClInclude>
     <ClInclude Include="Buffer\Buffer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Buffer</Filter>
     </ClInclude>
-    <ClInclude Include="Include\ABFramework.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Codes\ABCode.h">
+      <Filter>Codes</Filter>
     </ClInclude>
-    <ClInclude Include="ManagedObjects\ManagedObjects.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Macros\Macros.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Constants\Constants.h">
+      <Filter>Constants</Filter>
     </ClInclude>
     <ClInclude Include="Debugging\Assert\Assert.h">
-      <Filter>Header Files</Filter>
+      <Filter>Debugging\Assert</Filter>
+    </ClInclude>
+    <ClInclude Include="File\ABFile.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ABFramework.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Macros\Macros.h">
+      <Filter>Macros</Filter>
+    </ClInclude>
+    <ClInclude Include="ManagedObjects\ManagedObjects.h">
+      <Filter>ManagedObjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABString\ABString.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="File\ABFile.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>ABString</Filter>
     </ClCompile>
     <ClCompile Include="Buffer\Buffer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="File\ABFile.cpp">
+      <Filter>File</Filter>
     </ClCompile>
     <ClCompile Include="ManagedObjects\ManagedObjects.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>ManagedObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Templates.txt" />
+    <None Include="Templates.txt" />
+    <None Include="build.lua" />
   </ItemGroup>
 </Project>

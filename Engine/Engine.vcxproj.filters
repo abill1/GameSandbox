@@ -1,178 +1,270 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{3824E0A7-24C6-0A7E-0D81-1ED2F9C191CE}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Core">
+      <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Core\AssetManager">
+      <UniqueIdentifier>{78D38715-E4E9-85AB-2D61-11CD99B65633}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\AssetManager\AssetDef">
+      <UniqueIdentifier>{560798DF-4217-44B0-ABD0-A8CE97FF3249}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Camera">
+      <UniqueIdentifier>{E608F96D-52BE-7163-DBB2-6B3A47676867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Collision">
+      <UniqueIdentifier>{C97A968A-B548-8A90-9EDC-FAB68A4966F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Collision\Collider">
+      <UniqueIdentifier>{A63F2AA5-1277-723C-1B81-D65F87379935}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Collision\Shapes">
+      <UniqueIdentifier>{5CC117D0-C82D-D3CA-9121-6B28FD4CF532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Controller">
+      <UniqueIdentifier>{01077332-6D92-E0F6-76A3-63EBE2AD3CF7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\GameObject">
+      <UniqueIdentifier>{EEB55222-5A41-C0E6-6352-43DBCF5C1CE7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\GameObject\Sprite">
+      <UniqueIdentifier>{745B812E-6055-AA80-49C2-4091355B10ED}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Input">
+      <UniqueIdentifier>{AD4E7BCD-9906-BD1A-020E-9676EEE4570B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Math">
+      <UniqueIdentifier>{C7E5BF15-3350-748C-7C8E-2532E83752E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Scene">
+      <UniqueIdentifier>{CB0B2ACE-B7C3-6B1B-20CB-44770CA2060C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Window">
+      <UniqueIdentifier>{5581319D-C136-AA92-4A2B-A469B6DFA096}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{7FA9857C-6BE0-860D-14CD-6C1000E3020F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{7CCE658F-689B-C09A-91B4-AE427DE0F528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL">
+      <UniqueIdentifier>{30D451F7-9C5F-BFBB-A570-42B0117B1BBC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL\DataStructures">
+      <UniqueIdentifier>{DD38FF4B-C95E-C9B2-B2A4-4E7E9E69EE7E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL\DataStructures\IndexBuffer">
+      <UniqueIdentifier>{FE929BC0-EAFA-618E-5366-76A43FED787A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL\DataStructures\Vertex">
+      <UniqueIdentifier>{CAF47544-36B9-7434-FF1E-A5FE6BA2106A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL\DataStructures\VertexArray">
+      <UniqueIdentifier>{E930595C-D598-1F2A-3E04-34402A8B3616}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL\DataStructures\VertexBuffer">
+      <UniqueIdentifier>{C43E04EA-30A4-9770-B97C-394925E18CDF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL\GraphicsObject">
+      <UniqueIdentifier>{872C3023-7352-FA89-5C98-7F55485D1F56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL\Mesh">
+      <UniqueIdentifier>{EC670C2B-D8F6-95F4-8115-AAEF6D83A69A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL\ShaderObject">
+      <UniqueIdentifier>{6DBC2EC3-5977-1E6F-022F-97B9EEC868FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL\SimpleMeshes">
+      <UniqueIdentifier>{4E3C8877-3AF7-7723-E3AE-F06DCF48C2B3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL\SimpleMeshes\SquareMesh">
+      <UniqueIdentifier>{3B6E1413-A7FD-D5FD-B0F9-B6151C08110A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL\SimpleMeshes\Triangle_Equilateral">
+      <UniqueIdentifier>{6B54E966-D71A-4683-2076-D4E58C7BB4E7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\OpenGL\Texture">
+      <UniqueIdentifier>{9029C333-FC60-0BCB-056B-6FEE712132C4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vendor">
+      <UniqueIdentifier>{935FDCD7-7F01-07AE-68BC-1A0254FD8DFE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vendor\stb_image">
+      <UniqueIdentifier>{EDE315D3-D9DC-3425-020F-1AAAEE661431}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\Window\Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Math\Math.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\OpenGL\DataStructures\Vertex\Vertex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\OpenGL\Mesh\Mesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\OpenGL\SimpleMeshes\Triangle_Equilateral\Triangle_Equilateral.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\OpenGL\SimpleMeshes\SquareMesh\SquareMesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\OpenGL\DataStructures\VertexBuffer\VertexBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\OpenGL\DataStructures\IndexBuffer\IndexBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\OpenGL\DataStructures\VertexArray\VertexArray.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\OpenGL\ShaderObject\ShaderObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vendor\stb_image\stb_image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\OpenGL\Texture\Texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\OpenGL\GraphicsObject\GraphicsObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\GameObject\GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\GameObject\Sprite\Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Collision\Shapes\Rect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Collision\Collider\AABB.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Input\Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Input\Keyboard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Input\Mouse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Controller\PlayerController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Input\InputMapping.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Collision\Collision.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Core\AssetManager\AssetDef\AssetDef.h">
+      <Filter>Core\AssetManager\AssetDef</Filter>
     </ClInclude>
     <ClInclude Include="Core\AssetManager\AssetManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core\AssetManager</Filter>
     </ClInclude>
     <ClInclude Include="Core\Camera\Camera.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Collision\Collider\AABB.h">
+      <Filter>Core\Collision\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Collision\Collision.h">
+      <Filter>Core\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Collision\Shapes\Rect.h">
+      <Filter>Core\Collision\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Controller\PlayerController.h">
+      <Filter>Core\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\GameObject\GameObject.h">
+      <Filter>Core\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Core\GameObject\GameObjectManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\GameObject\Sprite\Sprite.h">
+      <Filter>Core\GameObject\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Input\Input.h">
+      <Filter>Core\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Input\InputMapping.h">
+      <Filter>Core\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Input\Keyboard.h">
+      <Filter>Core\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Input\Mouse.h">
+      <Filter>Core\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Math\Math.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Scene\Scene.h">
+      <Filter>Core\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Window\Window.h">
+      <Filter>Core\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\OpenGL\DataStructures\IndexBuffer\IndexBuffer.h">
+      <Filter>Renderer\OpenGL\DataStructures\IndexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\OpenGL\DataStructures\Vertex\Vertex.h">
+      <Filter>Renderer\OpenGL\DataStructures\Vertex</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\OpenGL\DataStructures\VertexArray\VertexArray.h">
+      <Filter>Renderer\OpenGL\DataStructures\VertexArray</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\OpenGL\DataStructures\VertexBuffer\VertexBuffer.h">
+      <Filter>Renderer\OpenGL\DataStructures\VertexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\OpenGL\GraphicsObject\GraphicsObject.h">
+      <Filter>Renderer\OpenGL\GraphicsObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\OpenGL\Mesh\Mesh.h">
+      <Filter>Renderer\OpenGL\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\OpenGL\ShaderObject\ShaderObject.h">
+      <Filter>Renderer\OpenGL\ShaderObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\OpenGL\SimpleMeshes\SquareMesh\SquareMesh.h">
+      <Filter>Renderer\OpenGL\SimpleMeshes\SquareMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\OpenGL\SimpleMeshes\Triangle_Equilateral\Triangle_Equilateral.h">
+      <Filter>Renderer\OpenGL\SimpleMeshes\Triangle_Equilateral</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\OpenGL\Texture\Texture.h">
+      <Filter>Renderer\OpenGL\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\Renderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Vendor\stb_image\stb_image.h">
+      <Filter>Vendor\stb_image</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Window\Window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\OpenGL\DataStructures\Vertex\Vertex.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\OpenGL\Mesh\Mesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\OpenGL\SimpleMeshes\Triangle_Equilateral\Triangle_Equilateral.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\OpenGL\SimpleMeshes\SquareMesh\SquareMesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\OpenGL\DataStructures\VertexBuffer\VertexBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\OpenGL\DataStructures\IndexBuffer\IndexBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\OpenGL\DataStructures\VertexArray\VertexArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\OpenGL\ShaderObject\ShaderObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\Renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vendor\stb_image\stb_image.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\OpenGL\Texture\Texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\OpenGL\GraphicsObject\GraphicsObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\GameObject\Sprite\Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Collision\Shapes\Rect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Collision\Collider\AABB.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Input\Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Collision\Collision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Core\AssetManager\AssetManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Core\AssetManager</Filter>
     </ClCompile>
     <ClCompile Include="Core\Camera\Camera.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Core\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Collision\Collider\AABB.cpp">
+      <Filter>Core\Collision\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Collision\Collision.cpp">
+      <Filter>Core\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Collision\Shapes\Rect.cpp">
+      <Filter>Core\Collision\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="Core\GameObject\GameObjectManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Core\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\GameObject\Sprite\Sprite.cpp">
+      <Filter>Core\GameObject\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Input\Input.cpp">
+      <Filter>Core\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Scene\Scene.cpp">
+      <Filter>Core\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Window\Window.cpp">
+      <Filter>Core\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\OpenGL\DataStructures\IndexBuffer\IndexBuffer.cpp">
+      <Filter>Renderer\OpenGL\DataStructures\IndexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\OpenGL\DataStructures\Vertex\Vertex.cpp">
+      <Filter>Renderer\OpenGL\DataStructures\Vertex</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\OpenGL\DataStructures\VertexArray\VertexArray.cpp">
+      <Filter>Renderer\OpenGL\DataStructures\VertexArray</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\OpenGL\DataStructures\VertexBuffer\VertexBuffer.cpp">
+      <Filter>Renderer\OpenGL\DataStructures\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\OpenGL\GraphicsObject\GraphicsObject.cpp">
+      <Filter>Renderer\OpenGL\GraphicsObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\OpenGL\Mesh\Mesh.cpp">
+      <Filter>Renderer\OpenGL\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\OpenGL\ShaderObject\ShaderObject.cpp">
+      <Filter>Renderer\OpenGL\ShaderObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\OpenGL\SimpleMeshes\SquareMesh\SquareMesh.cpp">
+      <Filter>Renderer\OpenGL\SimpleMeshes\SquareMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\OpenGL\SimpleMeshes\Triangle_Equilateral\Triangle_Equilateral.cpp">
+      <Filter>Renderer\OpenGL\SimpleMeshes\Triangle_Equilateral</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\OpenGL\Texture\Texture.cpp">
+      <Filter>Renderer\OpenGL\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\Renderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Vendor\stb_image\stb_image.cpp">
+      <Filter>Vendor\stb_image</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Renderer\OpenGL\Shaders\Default.vs.glsl" />
-    <None Include="Renderer\OpenGL\Shaders\Default.fs.glsl" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\DefaultTexture.tga" />
+    <None Include="Assets\desktop.ini">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="build.lua" />
   </ItemGroup>
 </Project>
