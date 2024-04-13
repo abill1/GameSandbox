@@ -105,6 +105,8 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="Framework\MemoryTracker\MemoryTracker.h" />
     <ClInclude Include="Vendor\SDL2\SDL.h" />
     <ClInclude Include="Vendor\SDL2\SDL_assert.h" />
     <ClInclude Include="Vendor\SDL2\SDL_atomic.h" />
@@ -475,6 +477,7 @@
     <ClInclude Include="Vendor\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\MemoryTracker\MemoryTracker.cpp" />
     <ClCompile Include="Vendor\glad\glad.c" />
     <ClCompile Include="Vendor\glm\detail\glm.cpp" />
   </ItemGroup>

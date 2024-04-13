@@ -1137,6 +1137,8 @@
     <ClInclude Include="Vendor\glm\vector_relational.hpp">
       <Filter>Vendor\glm</Filter>
     </ClInclude>
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="Framework\MemoryTracker\MemoryTracker.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vendor\glad\glad.c">
@@ -1145,6 +1147,7 @@
     <ClCompile Include="Vendor\glm\detail\glm.cpp">
       <Filter>Vendor\glm\detail</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\MemoryTracker\MemoryTracker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Vendor\SDL2\BUGS.txt">
