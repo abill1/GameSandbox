@@ -15,9 +15,13 @@ struct OpenGLAttributes
 int main(int argc, char* argv[])
 {
 	Framework::MemoryTracker::Init();
-	SDL_Init(SDL_INIT_EVERYTHING);
+
+	// ----- Initialize enTT 
 	entt::registry m_Registry;
 	entt::entity test0 = m_Registry.create();
+
+	// ----- Initialize SDL
+	SDL_Init(SDL_INIT_EVERYTHING);
 	SDL_Log("Entity ID: %u\n", test0);
 
 	// ----- Query to find the current display settings
@@ -37,10 +41,10 @@ int main(int argc, char* argv[])
 	SDL_Window* window = SDL_CreateWindow("SDL Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, displayMode.w / 2, displayMode.h / 2, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
 	SDL_GLContext openGLContext = SDL_GL_CreateContext(window);
 	gladLoadGLLoader(SDL_GL_GetProcAddress);
-	
 	glm::vec4 clearColor = { 0.5f, 0.5f, 0.5f, 1.0f };
 	glViewport(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, displayMode.w / 2, displayMode.h / 2);
 	glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
+	entt::hashed_string str;
 
 	// ----- Game Loop
 	bool bRunning = true;
