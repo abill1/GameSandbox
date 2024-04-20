@@ -2,16 +2,6 @@
 #include "./Engine/Engine.h"
 #include <stdio.h>
 
-struct OpenGLAttributes
-{
-	Uint8 Major = 4;
-	Uint8 Minor = 0;
-	Uint8 Profile = 1;
-	Uint8 DoubleBuffer = 1;
-	Uint8 DepthBufferSize = 24;
-	Uint8 AntiAliasing = 4;
-};
-
 int main(int argc, char* argv[])
 {
 	Framework::MemoryTracker::Init();
@@ -31,20 +21,49 @@ int main(int argc, char* argv[])
 	SDL_GetCurrentVideoDriver();
 
 	// ----- Create window and renderer 
-	OpenGLAttributes oglAttr;
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, oglAttr.Major);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, oglAttr.Minor);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, oglAttr.Profile);
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, oglAttr.DoubleBuffer);
-	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, oglAttr.DepthBufferSize);
-	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, oglAttr.AntiAliasing);
+	Engine::Renderer::Initialize();
 	SDL_Window* window = SDL_CreateWindow("SDL Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, displayMode.w / 2, displayMode.h / 2, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
 	SDL_GLContext openGLContext = SDL_GL_CreateContext(window);
 	gladLoadGLLoader(SDL_GL_GetProcAddress);
 	glm::vec4 clearColor = { 0.5f, 0.5f, 0.5f, 1.0f };
-	glViewport(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, displayMode.w / 2, displayMode.h / 2);
+	glViewport(0, 0, displayMode.w, -displayMode.h);
 	glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
-	entt::hashed_string str;
+
+	OGL::Shader constantColorShader = OGL::OpenGL::LoadShader("../Engine/Renderer/OpenGL/Shaders/Default.vs.glsl", "../Engine/Renderer/OpenGL/Shaders/Default.fs.glsl");
+	assert(constantColorShader != 0);
+	OGL::Vertex* pVerts = new OGL::Vertex[4];
+	pVerts[0] = { {-0.5f, -0.5f, 0.0f, 1.0f }, { 0.8f, 0.4f, 0.5f, 1.0f }, { 0.0f, 0.0f } };
+	pVerts[1] = { { 0.5f, -0.5f, 0.0f, 1.0f }, { 0.7f, 0.5f, 0.6f, 1.0f },  { 1.0f, 0.0f } };
+	pVerts[2] = { { 0.5f, 0.5f, 0.0f, 1.0f },  { 0.6f, 0.5f, 0.7f, 1.0f },   { 1.0f, 1.0f } };
+	pVerts[3] = { { -0.5f, 0.5f, 0.0f, 1.0f }, { 0.5f, 0.4f, 0.8f, 1.0f },  { 0.0f, 1.0f }};
+	if (pVerts != nullptr)
+		SDL_Log("Verts Init\n");
+	OGL::IndexBuffer* pIndices = new OGL::IndexBuffer[6];
+	pIndices[0] = 0U;
+	pIndices[1] = 1U;
+	pIndices[2] = 2U;
+	pIndices[3] = 0U;
+	pIndices[4] = 2U;
+	pIndices[5] = 3U;
+	if (pIndices != nullptr)
+		SDL_Log("Indices Init\n");
+
+	OGL::VertexArray vao;
+	OGL::OpenGL::LinkVertexArray(vao);
+	OGL::OpenGL::BindVertexArray(vao);
+
+	OGL::VertexBuffer vertBuf = 0;
+	OGL::OpenGL::LinkVertexBuffer(vertBuf);
+	OGL::OpenGL::BindVertexBuffer(vertBuf);
+	OGL::OpenGL::SetVertexBufferData(4 * sizeof(OGL::Vertex), pVerts);
+	OGL::OpenGL::BindVertexArrayLayout(vao);
+
+	OGL::IndexBuffer indexBuf;
+	OGL::OpenGL::LinkIndexBuffer(indexBuf);
+	OGL::OpenGL::BindIndexBuffer(indexBuf);
+	OGL::OpenGL::SetIndexBufferData(6 * sizeof(OGL::IndexBuffer), pIndices);
+	
+
 
 	// ----- Game Loop
 	bool bRunning = true;
@@ -71,12 +90,28 @@ int main(int argc, char* argv[])
 			bRunning = false;
 
 		// ----- Render
+		glDisable(GL_DEPTH_TEST);
+		glDisable(GL_CULL_FACE);
+		
 		glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+		
+		OGL::OpenGL::BindShader(constantColorShader);
+		OGL::OpenGL::BindVertexArray(vao);
+		OGL::OpenGL::BindIndexBuffer(indexBuf);
+		glDrawElements(GL_TRIANGLES, (GLsizeiptr)6, GL_UNSIGNED_INT, nullptr);
+
+		
 		SDL_GL_SwapWindow(window);
 
 	}
 
 	// ----- Clean up
+	OGL::OpenGL::UnlinkIndexBuffer(indexBuf);
+	OGL::OpenGL::UnlinkVertexBuffer(vertBuf);
+	OGL::OpenGL::UnlinkVertexArray(vao);
+	delete[] pIndices;
+	delete[] pVerts;
+	OGL::OpenGL::DestroyShader(constantColorShader);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 
