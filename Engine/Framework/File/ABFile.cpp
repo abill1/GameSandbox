@@ -18,7 +18,7 @@ Framework::Code Framework::File::Load(char* buffer, size_t _bufSize, const char*
 		fseek(hFile, 0, SEEK_END);
 		long len = ftell(hFile);
 		rewind(hFile);
-		fread_s(buffer, _bufSize, sizeof(char), len - 1, hFile);
+		fread_s(buffer, _bufSize, sizeof(char), (size_t)(len - 1), hFile);
 		rewind(hFile);
 		fclose(hFile);
 		code = Framework::Code::SUCCESS;
@@ -35,7 +35,7 @@ Framework::Code Framework::File::Load(Framework::Buffer& _buffer, const String& 
 	errno_t err = fopen_s(&hFile, _filePath.c_str(), "r+");
 	if (err == 0)
 	{
-		printf("File opened\n");
+		//printf("File opened\n");
 		fseek(hFile, 0, SEEK_END);
 		size_t len = (size_t)ftell(hFile);
 		rewind(hFile);

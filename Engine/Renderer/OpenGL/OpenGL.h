@@ -8,14 +8,18 @@
 
 #include "DataStructures/OGLDataStructures.h"
 #include "../Framework/Framework.h"
+#include "../OpenGL/Components/CMesh.h"
+#include "../OpenGL/Components/CRectMesh.h"
+#include "../OpenGL/Components/CTransform.h"
+#include "../OpenGL/Components/CTileMap.h"
 
 //======================================================================
 // OpenGL Definitions
 //======================================================================
 
+
 namespace OGL
 {
-
 	struct OpenGLAttributes
 	{
 		unsigned char  m_MajorVersion;
@@ -25,7 +29,7 @@ namespace OGL
 		unsigned char  m_DepthBufferSize;
 		unsigned char  m_AntiAliasing;
 		OpenGLAttributes()
-			:m_MajorVersion(4), m_MinorVersion(4), m_Profile(1), m_DoubleBuffer(1), m_DepthBufferSize(24), m_AntiAliasing(4)
+			:m_MajorVersion(4), m_MinorVersion(6), m_Profile(1), m_DoubleBuffer(1), m_DepthBufferSize(24), m_AntiAliasing(4)
 		{
 
 		}
@@ -49,8 +53,6 @@ namespace OGL
 			
 			unsigned int vs = privLoadCompileAttachShader(programID, GL_VERTEX_SHADER, _vertexShader);
 			unsigned int fs = privLoadCompileAttachShader(programID, GL_FRAGMENT_SHADER, _fragmentShader);
-			//glAttachShader(programID, vs);
-			//glAttachShader(programID, fs);
 			privLinkAndValidate(programID);
 			privCleanUp(vs, fs);
 
@@ -82,6 +84,16 @@ namespace OGL
 			glGenBuffers(1, &_indexBuffer);
 		}
 
+		static void LinkSSBO(SSBO& _ssbo)
+		{
+			glGenBuffers(1, &_ssbo);
+		}
+
+		static void UnlinkSSBO()
+		{
+			glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+		}
+
 		static void BindVertexArray(const VertexArray& _vertArray)
 		{
 			glBindVertexArray(_vertArray.m_ID);
@@ -95,6 +107,11 @@ namespace OGL
 		static void BindIndexBuffer(const IndexBuffer& _indexBuffer)
 		{
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
+		}
+
+		static void BindSSBO(SSBO& _ssbo)
+		{
+			glBindBuffer(GL_SHADER_STORAGE_BUFFER, _ssbo);
 		}
 
 		static void UnlinkVertexArray(VertexArray& _vertArray)
@@ -112,12 +129,42 @@ namespace OGL
 			glDeleteBuffers(1, &_indexBuffer);
 		}
 
+		static void UnlinkSSBO(SSBO& _ssbo)
+		{
+			glDeleteBuffers(1, &_ssbo);
+		}
+
 		static void SetVertexBufferData(signed long long int _vertSize, Vertex* _pVerts)
 		{
 			glBufferData(GL_ARRAY_BUFFER, _vertSize, _pVerts, GL_STATIC_DRAW);
 		}
 
-		static void SetIndexBufferData(signed long long int _indexSize, IndexBuffer* _pIndices)
+		static void SetDynamicVertexBufferData(signed long long int _vertSize)
+		{
+			glBufferData(GL_ARRAY_BUFFER, _vertSize, nullptr, GL_DYNAMIC_DRAW);
+		}
+
+		static void SubmitDynamicBufferData(signed long long int _vertSize, Vertex* _pVerts)
+		{
+			glBufferSubData(GL_ARRAY_BUFFER, 0, _vertSize, _pVerts);
+		}
+
+		static void SubmitSSBOData(signed long long int _dataSize, const void* _pData)
+		{
+			glBufferData(GL_SHADER_STORAGE_BUFFER, _dataSize, _pData, GL_DYNAMIC_DRAW);
+		}
+
+		static void SubmitDynamicSSBOData(signed long long int _dataSize, const void* _pData)
+		{
+			glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, _dataSize, _pData);
+		}
+
+		static void SetSSBOBufferSize(int _bufferLocation, SSBO _ssbo, unsigned int _offset, signed long long int _bufferSize)
+		{
+			glBindBufferRange(GL_SHADER_STORAGE_BUFFER, _bufferLocation, _ssbo, _offset, _bufferSize);
+		}
+
+		static void SetIndexBufferData(signed long long int _indexSize, TriangleIndex* _pIndices)
 		{
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, _indexSize, _pIndices, GL_STATIC_DRAW);
 		}
@@ -131,6 +178,13 @@ namespace OGL
 			privSetAttribPointer(_vertArray.m_Color);
 			privSetAttribPointer(_vertArray.m_TextureCoordinate);
 
+		}
+
+		static void SetUniformBuffer(int _ShaderProgram, const char* const _uniformName, int _count, glm::mat4& _data)
+		{
+			int uLoc = glGetUniformLocation(_ShaderProgram, _uniformName);
+			//assert(uLoc != -1);
+			glProgramUniformMatrix4fv(_ShaderProgram, uLoc, _count, GL_FALSE, &_data[0][0]);
 		}
 
 	private:
